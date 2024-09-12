@@ -1,4 +1,4 @@
-// relational operators <, >, <=, >=, ==, ===
+// relational operators <, >, <=, >=, ==, ===, !==
 
 let num1 = 4;
 let num2 = 5;
@@ -57,3 +57,11 @@ let hexa = 0x21;
 let n = 20;
 let t = hexa > n;
 console.log(t);                     // true
+
+console.log(2 !== 2);               // false
+
+console.log(2 !== '2');             // true
+
+console.log('' !== false);          // true
+
+console.log('' !== '');             // false
