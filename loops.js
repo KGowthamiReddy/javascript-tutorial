@@ -79,3 +79,56 @@ do {
     number3--;
 }while(number3 > 0);
 console.log(sumEven);               // 6
+
+// for loop
+for(let i = 1; i <= 3; i++) {
+    console.log(i);
+}
+
+// Print numbers from N down to 1
+for(let i = 5; i > 0; i--) {
+    console.log(i);
+}
+
+// Find the average of numbers from 1 to 5
+let average = 0;
+let avgNum;
+for(let i = 1; i <= 5; i++) {
+    average = average + i;
+    avgNum = Math.floor(average / 5)
+}
+console.log(avgNum);
+
+// fibonancci series
+let fib1 = 0, fib2 = 1, fib;
+let n1 = 6;
+for(let i = 1; i <= n1; i++) {
+    console.log(fib1);
+    fib = fib1 + fib2;
+    fib1 = fib2;
+    fib2 = fib;
+}
+
+// nested for loop
+for(let i = 1; i <= 3; i++) {
+    console.log('i: ', i);
+    for(let j = 1; j <= 3; j++) {
+        console.log('j: ', j)
+    }
+}
+
+// multiple of 3 using nested loop
+for(i = 1; i <= 30; i++) {
+    for(j = 1; j <= i; j++) {
+        if(i % 3 === 0) {
+            console.log(i);
+            break;
+        }        
+    }
+}
+
+// multiple of 8 using for loop
+let mul = 8;
+for(let i = 1; i <= 10; i++) {
+    console.log(mul * i);
+}
