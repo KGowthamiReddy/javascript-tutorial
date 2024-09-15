@@ -132,3 +132,39 @@ let mul = 8;
 for(let i = 1; i <= 10; i++) {
     console.log(mul * i);
 }
+
+// print the numbers which is divisible by 3
+for(let i = 1; i <= 100; i++) {
+    if(i % 3 === 0) {
+        console.log(i);
+    }
+}
+
+// interview question
+console.log(false || 0 || null || 'gowthami' || undefined);
+
+// print the digits separately in a number 98765
+// initialise the value
+// use while loop and condition should be number greater than 0
+// declare a variable as d
+// d = number % 10 
+// number = Math.floor(digit / 10)
+// print d
+
+let digit1 = 98765;
+while(digit1 > 0) {
+    let d = digit1 % 10;
+    digit1 = Math.floor(digit1 / 10);   
+    console.log(d);
+
+}
+
+// assignment print the reverse of a number
+let digitNumber = 456789;
+let num2 = 0;
+while(digitNumber > 0) {
+    let r = digitNumber % 10;
+    num2 = num2 * 10 + r;
+    digitNumber = Math.floor(digitNumber / 10);
+}
+console.log(num2);
