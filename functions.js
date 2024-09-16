@@ -169,3 +169,114 @@ function mul(a, b, c = 2) {
     return a + b + c;
 }
 console.log(mul(10, 5));                    // 17
+
+// arrow functions
+let squareNum = (num) => num ** 2;
+console.log(squareNum(3));                  // 9
+
+// assignment
+let add = (num1, num2) => num1 + num2;
+let num2 = Math.abs(5);
+let num3 = Math.abs(-6);
+console.log(add(num2, num3));               // 11
+
+// methods and this keyword
+let person = {
+    firstName : 'Gowthami',
+    lastName : 'Kammannagari',
+    fullName : function() {
+        return `${this.firstName} ${this.lastName}`;            // Gowthami Kammannagari
+    }
+}
+//console.log(person);
+console.log(person.fullName());
+
+// eg
+let car = {
+    cName : 'Thar',
+    cid : 1,
+    start : function() {
+        return `car started`;
+    }
+}
+console.log(car.start());                   // car started
+
+// eg
+let rectangle = {
+    width : 10,
+    height : 6,
+    area : function() {
+        return this.width * this.height;
+    }
+}
+console.log(rectangle.area());              // 60
+
+// eg
+let bankAccount = {
+    actNum : '123456',
+    balance : 1000,
+    getBalance : function() {
+        return this.balance;
+    }
+}
+console.log(bankAccount.getBalance());      // 1000
+
+// eg
+let car1 = {
+    cName : 'Thar',
+    cCost : 150000,
+    compare : function(c) {
+        if(this.cCost > c.cCost) {
+            console.log(this);
+        } else {
+            console.log(c);
+        }
+    },
+    getDetails : function() {
+        return this.cName
+    }
+}
+
+let car2 = {
+    cName : 'BMW',
+    cCost : 200000,
+    getDetails : function() {
+        return this.cName;
+    }
+}
+
+console.log(car1.getDetails());
+console.log(car2.getDetails());
+
+car1.compare(car2);
+
+// constructor function
+function Employee(name, role) {
+    this.name = name;
+    this.role = role;
+}
+let emp = new Employee('Gowthami', 'developer');
+console.log(emp);                       // Employee { name: 'Gowthami', role: 'developer' }
+console.log(emp.name);                  // Gowthami
+console.log(emp.role);                  // developer
+emp.role = 'backend developer';
+console.log(emp);                       // Employee { name: 'Gowthami', role: 'backend developer' }
+
+let emp1 = new Employee('Ram', 'testing');
+console.log(emp1);                      // Employee { name: 'Ram', role: 'testing' }
+console.log(emp1.role);                 // testing        
+
+// eg
+function Student(name, id) {
+    this.name = name;
+    this.id = id;
+    this.mesg = function() {
+        return `student details are : ${this.name} and ${this.id} `;
+    }
+}
+
+let s = new Student('sita', 18);
+console.log(s);
+console.log(s.mesg());
+let s1 = new Student('ram', 15);
+console.log(s1.mesg());
