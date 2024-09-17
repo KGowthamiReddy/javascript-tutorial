@@ -275,6 +275,7 @@ console.log(removeDuplicate);           // [ 'pens', 'books', 'chocalates' ]
 // set
 let set = new Set([1, 2, 3, 1, 3, 4, 2, 5]);
 console.log(set);                       // Set(5) { 1, 2, 3, 4, 5 }
+console.log(set.size);                  // 5
 
 set.add(7);
 console.log(set);                       // Set(6) { 1, 2, 3, 4, 5, 7 }
@@ -296,3 +297,114 @@ let arr2 = [3, 4, 5, 6, 7];
 let s1 = new Set(arr2);
 let i = arr1.filter(x => s1.has(x));
 console.log(i);                         // [ 3, 4, 5 ]
+
+// Map
+let map = new Map();
+map.set('name', 'Gowthami');
+map.set('wipro', 'developer');
+console.log(map);                       // Map(2) { 'name' => 'Gowthami', 'wipro' => 'developer' }
+
+console.log(map.get('name'));           // Gowthami
+
+console.log(map.has('age'));            // false
+
+console.log(map.size);                  // 2
+
+let user1 = new Map();
+user1.set('Gowthami', 20);
+user1.set('wipro', 'developer');
+console.log(user1);                     // Map(2) { 'Gowthami' => 20, 'wipro' => 'developer' }
+
+for(let [key, value] of user1) {
+    console.log(key, ' ', value);       
+}
+
+//
+user1.forEach((value, key) => {
+    console.log(value, ' ', key);
+});
+
+// recurssion
+// function myFun(){
+//     for(let i = 1; i <= 5; i++){
+//         console.log('function calling itself');
+//     }
+//     myFun();
+// }
+// myFun();
+
+// eg 
+let g = 1;
+function add() {
+    let a = 2, b = 4;
+    g++;
+    if(g < 10){
+        console.log(a + b);
+        add();
+    }
+}
+add();
+
+// factorial of a number using fibonancci
+let factNum = 5;
+function myFact(num) {
+    if(num === 0) return 1;
+    else return num * myFact(num - 1);
+}
+let output = myFact(factNum);
+console.log(output);                    // 120
+
+// Find Maximum Number in an Array
+// Example:
+// Input: [1, 3, 7, 2, 9]
+
+let input = [1, 3, 7, 2, 9];
+console.log(Math.max(...input));            // 9
+
+// or
+
+let maxNum = function(num) {
+    let max = num[0];
+    for(let i = 1; i < num.length; i++){
+        if(num[i] > max) {
+            max = num[i];
+        }
+    }
+    return max;
+}
+console.log(maxNum(input));                 // 9
+
+// Find Manimum Number in an Array
+let minNum = function(num) {
+    let min = num[0];
+    for(let i = 1; i < num.length; i++){
+        if(num[i] < min) {
+            min = num[i]
+        }
+    }
+    return min;
+}
+console.log('minimum', minNum(input));      // 1
+
+// Find Missing Number in an Array
+let numArray = [1, 3, 4, 5, 6];
+let n1 = 6;
+let sum1 = Math.floor((n1 * (n1 + 1)) / 2);
+let misNumber = numArray.reduce((a, n) => a + n);
+let mis = sum1 - misNumber;
+console.log(mis);                           // 2
+
+// Find Longest Word in a String
+// Example:
+// Input: "I love programming"
+// Output: "programming"
+let input1 = 'I love programming';
+let w = input1.split(' ');
+let longWord = '';
+
+for(let i = 0; i < w.length; i++) {
+    if(w[i].length > longWord.length) {
+        longWord = w[i];
+    }
+}
+console.log(longWord);                      // programming
