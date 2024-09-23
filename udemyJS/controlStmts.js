@@ -90,3 +90,63 @@ if(n1+n2 > 31) {
 } else {
     console.log(`stop1`);
 }
+
+// Beyond true/ false: "Truthy" and "Falsy" Values
+let age1 = 10;
+if(age1 === 10) {
+    console.log(age1);
+}
+// (or)
+if(age1) {
+    console.log(age1);
+}
+
+// eg
+let x = false && "hello";                   
+let y = true || "world";                    
+let z = "" || 42 && "hi";                   
+
+console.log(x);                             // false
+console.log(y);                             // true
+console.log(z);                             // hi
+
+// eg
+function isTruthy(value) {
+    return !value;
+  }
+  
+// Test cases
+console.log(isTruthy(0));           // true
+console.log(isTruthy("hello"));     // false
+console.log(isTruthy(undefined));   // true
+console.log(isTruthy(1));           // false
+console.log(isTruthy(""));          // true
+console.log(isTruthy([]));          // false
+
+/*Example: Rock, Paper, Scissors Win Condition
+a Rock, Paper, Scissors game, the player wins if their choice beats the opponent’s choice according to the rules:
+Rock beats Scissors
+Scissors beats Paper
+Paper beats Rock*/
+
+function checkIn(teamPlayer1, teamPlayer2) {
+    if(teamPlayer1 === teamPlayer2) {
+        return `draw`;
+    }
+
+    if(
+        (teamPlayer1 === 'rock' && teamPlayer2 === 'scissors') || 
+        (teamPlayer1 === 'scissors' && teamPlayer2 === 'paper') || 
+        (teamPlayer1 === 'paper' && teamPlayer2 === 'rock')
+    ) {
+        return `player 1 wins`;
+    } else {
+        return `player 2 wins`
+    }
+
+}
+let teamPlayer1 = 'rock';
+let teamPlayer2 = 'scissors';
+
+let result = checkIn(teamPlayer1, teamPlayer2);
+console.log(result);
