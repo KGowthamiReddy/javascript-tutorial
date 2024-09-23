@@ -150,3 +150,29 @@ let teamPlayer2 = 'scissors';
 
 let result = checkIn(teamPlayer1, teamPlayer2);
 console.log(result);
+
+const enteredValue = 'Max';
+const userName = enteredValue && '';
+console.log(userName);
+console.log(!!enteredValue);
+
+//  Valid Login
+function myLogin(username, pswd) {
+    return username && pswd ? `successfully login` : `please enter valid credentials`;
+}
+let valid = myLogin('gowthami', 123456);
+console.log(valid);
+
+// Max of Two Numbers
+function maxNum(a, b) {
+    return a > b ? a : b
+}
+let m = maxNum(4, 5);
+console.log(m);
+
+// Valid Range
+function validRange(num) {
+    return num > 1 && num < 100;
+}
+let v = validRange(6);
+console.log(v);
