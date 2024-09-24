@@ -1,3 +1,5 @@
+// added examples for arrays and loops
+
 let a = [];
 
 let arrNum = [1, 3];
@@ -102,13 +104,13 @@ function printNum(n) {
         i++;
     }
 
-    let sum = 0;
-    for (let i = 0; i < 3; i++) {
-        for (let j = 5; j > 2; j--) {
-            sum = j + i;
-        }
-    }
-    console.log(sum);
+    // let sum = 0;
+    // for (let i = 0; i < 3; i++) {
+    //     for (let j = 5; j > 2; j--) {
+    //         sum = j + i;
+    //     }
+    // }
+    // console.log(sum);
     
     
 }
@@ -212,9 +214,6 @@ function countArrayObj(arr) {
     p.forEach(per => {
         console.log(`${per.name}, ${per.age}`);
     });
-
-
-
     
 }
 countArrayObj(arrayObj);
@@ -244,3 +243,45 @@ const capitalizeValues = (arr => {
 
 });
 capitalizeValues(arrayObj);
+
+// nested arrays
+for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
+        console.log(`values of i: ${i} and j: ${j}`);
+    }
+}
+
+// eg
+let result;
+for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
+        result = i + j;
+    }
+}
+console.log(result);
+
+// print numbers in the range between 30 to 50
+function rangeNumbers() {
+    let i = 30;
+    while(i <= 50) {
+        console.log(i);
+        i++;
+    }
+}
+rangeNumbers();
+
+// print fibonancci numbers between 1 to 50
+function fibonancciRange(num1, num2) {
+    let fib1 = 0;
+    let fib2 = 1;
+    let fib;
+    while(fib1 <= num2) {
+        if(fib1 >= num1) {
+            console.log(fib1);
+        }
+        fib = fib1 + fib2
+        fib1 = fib2;
+        fib2 = fib;
+    }
+}
+fibonancciRange(90, 100);

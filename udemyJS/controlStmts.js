@@ -40,8 +40,7 @@ if(n1 > n2) {
 }
 
 // Determine Leap Year
-let year = 2000;
-
+let year = 2023;
 if(year % 4 === 0) {
     console.log('leap year');
 } else if(year % 100 !== 0 || year % 400 === 0) {
@@ -176,3 +175,132 @@ function validRange(num) {
 }
 let v = validRange(6);
 console.log(v);
+
+// switch case
+// Basic Calculator
+// let operator = '+';
+function basicCal(a, b, operator) {
+    switch(operator) {
+        case '+': 
+            let add = a + b;
+            console.log(add)
+        break;
+        case '-': 
+            let sub = a - b;
+            console.log(sub);
+        break;
+        case '*':
+            let mul = a * b;
+            console.log(mul);
+        break;
+        case '/':
+            let div = Math.floor(a / b);
+            console.log(div);
+        break;
+        case '%':
+            let rem = a % b;
+            console.log(rem);
+        break;
+        default:
+            let msg = 'can not perform any arithmetic operation';
+            console.log(msg);        
+    
+    }
+
+}
+basicCal(5, 2, '/');
+
+// Write a function that takes a year as input and returns whether the year is a leap year or not 
+// using a switch statement. 
+// Use logic that divides the year by 4, 100, and 400 to determine if it's a leap year.
+
+let year1 = 2024;
+function isLeapYear(year) {
+    switch(true) {
+        case year % 4 === 0:
+            console.log(`${year} is a leap year`);
+            break; 
+        case year % 100 !== 0:
+            console.log(`${year} is not a leap year`);
+            break;
+        case year % 400 === 0:
+            console.log(`${year} is a leap year`);
+            break;
+        default:
+            console.log(`${year} is not a leap year`);       
+    }
+}
+isLeapYear(year1);
+
+/* Season Finder
+Write a function that takes a month number (1-12) as input and 
+returns the corresponding season ("Winter", "Spring", "Summer", "Fall") 
+using a switch statement.
+
+Winter: December (12), January (1), February (2)
+Spring: March (3), April (4), May (5)
+Summer: June (6), July (7), August (8)
+Fall: September (9), October (10), November (11)
+*/
+
+function seasonFind(num) {
+    switch(num) {
+        case 1:
+        case 2:
+        case 12:
+            console.log('winter season');
+            break;
+        case 3:
+        case 4:
+        case 5:
+            console.log('spring season');
+            break;
+        case 6:
+        case 7:
+        case 8:
+            console.log('summer season');
+            break;
+        case 9:
+        case 10:
+        case 11:
+            console.log('fall season');
+            break;
+        default:
+            console.log('any other season');    
+    }
+}
+seasonFind(9);
+
+/* Grade Calculator
+Write a function that takes a student's score as input (0-100) and 
+returns their grade based on the following conditions:
+
+90-100: "A"
+80-89: "B"
+70-79: "C"
+60-69: "D"
+0-59: "F" 
+*/
+
+function gradeCal(num) {
+    switch(true){
+        case num >= 90:
+            console.log('A grade');
+            break;
+        case num >= 80:
+            console.log('B grade');
+            break;
+        case num >= 70:
+            console.log('C grade');
+            break;
+        case num >= 60:
+            console.log('D grade');
+            break;
+        case num > 0:
+            console.log('F grade');
+            break;
+        default:
+            console.log('no grade');
+    }
+}
+gradeCal(90);
