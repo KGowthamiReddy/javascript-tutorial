@@ -285,3 +285,148 @@ function fibonancciRange(num1, num2) {
     }
 }
 fibonancciRange(90, 100);
+
+// loops with break
+for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
+        if(i == j) {
+            console.log(i, j);
+            break;
+        }
+    }
+}
+
+// loops with continue
+for(let i = 0; i < 5; i++) {
+    for(let j = 0; j < 5; j++) {
+        if(i == j) {
+            console.log(i, j);
+            continue;
+        }  
+    }
+}
+
+// Break on Condition
+// Write a function that prints numbers from 1 to 20 but stops printing when it encounters the number 15
+function printNumbers(num) {
+    for(let i = 1; i < num; i++) {
+        if(i == 15) break;
+        console.log(i);
+    }
+}
+printNumbers(20);
+
+// Skip Even Numbers
+// Write a function that prints numbers from 1 to 30 but skips all even numbers.
+function skipEvenNum(num) {
+    for(let i = 1; i <= num; i++) {
+        if(i % 2 == 0) {
+            continue;
+        }
+        console.log(i);
+    }
+}
+skipEvenNum(30);
+
+// Count Down with Break
+// Write a function that counts down from 10 to 0 but breaks out of the loop if it reaches 5.
+function countDown() {
+    for(let i = 10; i > 0; i--) {
+        if(i == 5) break;
+        console.log(i);
+    }
+}
+countDown();
+
+// Find First Negative Number
+// Write a function that takes an array of numbers and 
+// prints each number until it finds the first negative number, at which point it should stop.
+let numbers = [1, 2, 3, 4, -1, 5, 6];
+
+function printUptoNegative(arr) {
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] < 0) break;
+
+        console.log(arr[i]);
+    }
+}
+printUptoNegative(numbers);
+
+// Sum Until Break Condition
+// Write a function that sums numbers from 1 to 100 but stops adding 
+// when it reaches a total greater than 200. Return the total sum.
+function sumUnitilBreak() {
+    let sum = 0;
+    for(let i = 1; i <= 100; i++) {
+        sum += i;
+        if(sum >= 200) break; 
+        console.log(sum);   
+    }
+    // console.log(sum);
+}
+sumUnitilBreak();
+
+// Count and Skip Specific Numbers
+// Write a function that counts how many numbers from 1 to 50 are not divisible by 3 or 5, 
+// using continue to skip those that are.
+function countNumbers() {
+    let count = 0;
+    for(let i = 0; i <= 50; i++) {
+        if(i % 3 === 0 || i % 5 === 0) continue;
+
+        count++;
+    }
+    console.log(count);
+}
+countNumbers();
+
+// try - catch
+// divisible by zero
+function divisibleByNumbers(n1, n2) {
+    try {
+        let output = n1 / n2;
+        
+        if(n2 === 0) {
+            throw new Error(`divizible by zero is not valid`);
+        }
+
+        console.log(output);
+    } catch(error) {
+        console.log('Error:', error.message);
+    }
+}
+divisibleByNumbers(10, 0);
+
+// Array Index Error
+function arrayIndex(arr, index) {
+    try {
+        if(arr < 0 || index >= arr.length) {
+            throw new Error('index out of bounds');
+        }
+        console.log(arr[index]);
+    } catch(error) {
+        console.log('Error:', error.message);
+    }
+    
+}
+let arrayEle = [10, 2, 4, 5, 1];
+arrayIndex(arrayEle, 5);
+arrayIndex(arrayEle, 2);
+
+// Login Validation
+function loginValidation(username, pswd) {
+    try {
+        if(!username) {
+            throw new Error('please enter username');
+        }
+        if(!pswd) { 
+            throw new Error('please enter pswd');
+        }
+        console.log('login successfull');
+    } catch (error) {
+        console.log('Error:', error.message);
+    }
+}
+loginValidation('gowthami', 1234);
+loginValidation('damu');
+loginValidation('', 9876);
