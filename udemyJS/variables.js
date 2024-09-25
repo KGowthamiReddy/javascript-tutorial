@@ -96,3 +96,62 @@ function birthdayParty() {
 }
 birthdayParty();
 console.log(foodItems);
+
+// Hoisting
+console.log(hostName);                          //  undefined
+var hostName = 'Develliers';
+
+// eg
+//console.log(tabName);                           // error
+let tabName = 'Ipad';
+console.log(tabName);
+
+// eg
+//console.log(bookCost);                            // error
+const bookCost = 100;
+console.log(bookCost);
+
+// strict
+'use strict';
+// console.log(i);                                     // error
+i = 10;
+console.log(i);
+
+// primitive vs reference values
+// primitive values
+let play = 'cricket';
+let p = play;
+p = 'volleyball';
+
+console.log(play);
+console.log(p);
+
+// eg
+let isLoggedIn = true;
+let loggedIn = isLoggedIn;
+loggedIn = false;
+
+console.log(isLoggedIn);
+console.log(loggedIn);
+
+// reference values
+let fruit = {
+    name : 'guava',
+    cost : 50
+}
+let anotherFruit = fruit;
+anotherFruit.name = 'Mango';
+
+console.log(fruit.name);
+console.log(anotherFruit.name);
+
+// eg
+let team1 = ['Virat', 'Develliers'];
+let team2 = team1;
+team2[3] = 'Maxwell';
+team1.push('Dhoni');
+team2[2] = 'Chahal';
+
+console.log(`team1 players:`, team1);
+console.log(`team2 players:`, team2);
+ 
