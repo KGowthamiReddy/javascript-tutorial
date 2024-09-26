@@ -107,3 +107,131 @@ function myName() {
 }
 myName();
 console.log(name);
+
+// function Vs methods
+function cricketTeam() {
+    return `welcome Indian cricket team`;
+}
+console.log(cricketTeam());
+
+// methods
+let employee = {
+    name : 'Ramu',
+    id : 1,
+    greet : function() {
+        return `welcome, ${this.name}`;
+
+    }
+}
+console.log(employee.id);
+console.log(employee.greet());
+
+// eg
+let sumNumbers = {
+    a : 4,
+    b : 6,
+    result: function() {
+        return this.a + this.b;
+    }
+}
+console.log(sumNumbers.result());
+
+// function expressions
+//console.log(doingWork());                           // error
+const doingWork = function() {
+    return `i'm doing office work`;
+}
+console.log(doingWork());
+
+// eg
+console.log(sayHi());
+function sayHi() {
+    return `hii prendss!!!`;
+}
+
+// eg
+const startGame = function start() {
+    return `game started`;
+}
+console.log(startGame());
+console.log(`game ended`);
+//console.log(start())                                    // error
+
+// eg
+const start = function(name) {
+    let result = name === 'cricket' ? 'started cricket game' : 'other game started';
+    return result;
+}
+console.log(start('cricket'));
+console.log(start('chess'));
+
+
+// eg Small game
+let rock = 'ROCK';
+let paper = 'PAPER';
+let scissor = 'SCISSOR';
+let selection = paper;
+let resultplayer_win = 'PLAYER_WINS';
+let resultComputer_win = 'COMPUTER_WINS';
+let resultDraw = 'DRAW';
+
+const getPlayerChoice = () => {
+    if(
+        selection !== rock &&
+        selection !== paper && 
+        selection !== scissor
+    ) {
+        console.log(`invalid choice!! so we choose default as ${paper}`);
+    }
+    return `${selection}`;
+}
+
+const getComputerChoice = () => {
+    let randomNum = Math.random();
+    console.log(randomNum);
+    if(randomNum < 0.34) {
+        return rock;
+    } else if(randomNum < 0.67) {
+        return paper;
+    } else {
+        return scissor;
+    }
+}
+
+const getWinner = (cChoice, pChoice) => {
+    if(cChoice === pChoice) {
+        return resultDraw;
+    } else if(
+        cChoice === rock && pChoice === paper ||
+        cChoice === paper && pChoice === scissor ||
+        cChoice === scissor && pChoice === rock
+    ) {
+        return resultplayer_win;
+    } else {
+        return  resultComputer_win
+    }
+
+}
+
+function gameStarted() {
+    console.log(`small game has been started`);
+    let playerChoice = getPlayerChoice();
+    let computerChoice = getComputerChoice();
+    let winner = getWinner(playerChoice, computerChoice);
+    console.log(playerChoice);
+    console.log(computerChoice);
+    console.log(winner);
+
+    let message = `player choice is ${playerChoice} and computer choice is ${computerChoice} `;
+    if(winner === resultDraw) {
+        message = message + `had a draw`;;
+    } else if(winner === resultplayer_win) {
+        message += 'win';
+    } else {
+        message += 'lose'
+    }
+
+    console.log(message);
+
+}
+gameStarted();
