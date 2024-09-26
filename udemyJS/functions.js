@@ -235,3 +235,193 @@ function gameStarted() {
 
 }
 gameStarted();
+
+// rest operator
+const sumNum = (...numbers) => {
+    let sum = 0;
+    for(let n of numbers) {
+        sum += n;
+    }
+    return sum;
+}
+console.log(sumNum(1, 4, 6, 10, -5));
+
+// Find Maximum Value
+const maxNum = (...numbers) => {
+    let max = numbers[0];
+
+    for(let n of numbers) {
+        if(n > max) {
+            max = n;
+        }
+    }
+    return max;
+}
+console.log(maxNum(1, 4, 10, 20, 5));
+
+// Separate First Element
+const separateNum = (a, ...numbers) => {
+    return a;
+}
+console.log(separateNum(5, 6, 3, 2, 8));
+
+// Concatenate Strings
+const concateStrings = (...strings) => {
+    return strings.join('');
+}
+console.log(concateStrings('gowthami', 'reddy'));
+
+// Merge Objects
+function mergeObjects(obj1, ...objects) {
+    // return {...obj1, ...objects};
+    return Object.assign(obj1, ...objects);
+    
+}
+console.log(mergeObjects({name : 'Rahul'}, {age : 20}, {role: 'student'}));
+console.log(mergeObjects({a: 1}, {b: 2}, {c: 3}));
+
+// creating function inside function
+function outerFunction() {
+    let message = `outer function`;
+
+    function innerFunction() {
+        let message = `inner function`;;
+        console.log(message);
+    }
+    innerFunction();
+    console.log(message);
+}
+outerFunction();
+
+// Create a Counter Function
+function counterFun() {
+    let count = 0;
+
+    return function() {
+        count += 1;
+        return count;
+    };
+}
+let c = counterFun();
+console.log(c());
+console.log(c());
+
+// callback function
+function myMesg(name) {
+    console.log(`welcome, ${name}`);
+}
+
+function myGreet(fun) {
+    let name = 'sita';
+    fun(name);
+}
+
+myGreet(myMesg);
+
+// eg
+function myResult(a, b) {
+    console.log(Math.floor(a / b));
+}
+
+function divedeNum(fn) {
+    let a = 10;
+    let b = 3;
+    fn(a, b);
+}
+divedeNum(myResult);
+
+// bind
+function fullName() {
+    return `${this.fname} ${this.lname}`;
+}
+
+const person1 = {
+    fname : 'virat',
+    lname : 'kohli',
+}
+
+const person2 = {
+    fname : 'ab',
+    lname : 'devilliers'
+}
+
+//console.log(person1.fullName());
+let person = fullName.bind(person1);
+console.log(person());
+
+let p = fullName.bind(person2);
+console.log(p());
+
+// eg
+function multiply(a, b) {
+    return a * b;
+}
+
+const mul1 = multiply.bind(null, 5);
+console.log(mul1(2)); 
+
+// call 
+const employeeDetails = {
+    firstName : 'Raj',
+    lastName : 'reddy',
+    message: function(company) {
+        return `hello, ${this.firstName} ${this.lastName} and working in ${company} company`;
+    }
+}
+const otherEmployee = {
+    firstName : 'Sachin',
+    lastName : 'tendulkar'
+}
+
+console.log(employeeDetails.firstName);
+console.log(employeeDetails.message('Wipro'));
+console.log(employeeDetails.message.call(otherEmployee, 'TCS'));
+
+//eg
+const user = {
+    fullName : function(age) {
+        return `my name is ${this.firstName} ${this.lastName} and age is ${age}`;
+    }
+}
+const user1 = {
+    firstName : 'Gowthami',
+    lastName : 'Kammannagari'
+}
+console.log(user.fullName.call(user1, 24));
+
+// apply
+const animals = {
+    getDetails : function(age, nonveg) {
+        return `i am ${this.name} and color is ${this.color} and age ${age} and eating ${nonveg}`;
+    }
+}
+
+const animal1 = {
+    name : 'Lion',
+    color : 'Yellow'
+}
+
+const animal2 = {
+    name : 'rabbit',
+    color : 'white'
+}
+console.log(animals.getDetails.apply(animal1));
+console.log(animals.getDetails.apply(animal2, [10]));
+console.log(animals.getDetails.apply(animal1, [20, 'chicken']));
+
+// get min value
+function minValue(arr) {
+    return Math.min.apply(null, arr);
+    
+}
+let n = [4, 3, 2, 1]
+console.log(minValue(n));
+
+// get maxValue
+// get min value
+function maxValue(arr) {
+    return Math.max.apply(null, arr);
+    
+}
+let max = [4, 3, 2, 1]
+console.log(maxValue(max));
