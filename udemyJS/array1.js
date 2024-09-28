@@ -81,6 +81,11 @@ console.log(rangeNumbers, storeNumbers);
 let range = rangeNumbers.slice(2);
 console.log(range);
 
+// includes
+console.log(rangeNumbers.includes(3));
+
+console.log(rangeNumbers.includes(1));
+
 let s = rangeNumbers.slice(3, 5);
 console.log(s);
 
@@ -138,3 +143,174 @@ function findIndexNum(element) {
 }
 
 console.log(array.findIndex(findIndexNum));
+
+// forEach()
+const prices = [2, 10, 25, 20, 30];
+const tax = 1.20;
+const taxPrices = [];
+
+prices.forEach((num, i, p) => {
+    let price = {index: i, taxPrices : num * (1 + tax)};
+    taxPrices.push(price);
+})
+
+console.log(taxPrices);
+
+// 
+const frnds = ['damu', 'harsha', 'naveen', 'dinesh'];
+
+frnds.forEach((frnd, index) => {
+    console.log(`${index} : ${frnd}`);
+})
+
+// eg
+frnds.forEach((frnd, index, array) => {
+    array[index] = frnd.toUpperCase();
+})
+
+console.log(frnds);
+
+// eg
+let numbers = [1, 3, 4, 2, 5, 8];
+
+numbers.forEach((num, index, array) => {
+    if(num % 2 === 0) return;
+
+    console.log(num);
+})
+
+// Square Each Number
+numbers.forEach((num, index, array) => {
+    num = num ** 2;
+    console.log(num);
+});
+
+// Count the Occurrences of a Value
+const values = [1, 2, 3, 2, 2, 4, 5, 6];
+let occurenceValue = 2;
+let count = 0;
+
+values.forEach((num, index, array) => {
+    if(num === occurenceValue) count++;
+})
+
+console.log(count);
+
+// map()
+// Square Each Number using map
+let num1 = [1, 3, 5, 7];
+
+let square = num1.map(num => num ** 2);
+console.log(square);
+
+// Convert Strings to Uppercase
+let stingsUppercase = frnds.map(str => {
+    let s = str.toUpperCase();
+    return s;
+});
+console.log(stingsUppercase);
+
+// Extract First Name from Objects
+let persons = [
+    {firstName : 'Gowthami', lastName : 'Reddy'},
+    {firstName : 'Damu', lastName : 'Reddy'},
+    {firstName : 'Harsha', lastName : 'Reddy'},
+];
+
+let obj = persons.map(name => name.firstName);
+console.log(obj);
+
+// Create Objects with Key-Value Pairs
+let object = num1.map(num => ({value : num}));
+console.log(object);
+
+// sort() and reverse()
+let sortNum = [8, 10, 9, 1, 5];
+sortNum.sort((a, b) => a - b);
+console.log(sortNum);
+
+// eg
+persons.sort((a, b) => {
+    if(a.firstName < b.firstName) {
+        return -1
+    } 
+    if(a.firstName > b.firstName ) {
+        return 1;
+    }
+    return 0;
+});
+console.log(persons);
+
+// reverse()
+// eg
+sortNum.reverse();
+console.log(sortNum);
+
+// eg
+persons.sort((a, b) => {
+    if(a.firstName < b.firstName) {
+        return -1
+    } 
+    if(a.firstName > b.firstName ) {
+        return 1;
+    }
+    return 0;
+}).reverse();
+console.log(persons);
+
+// Sort an Array of Strings by Length
+function sortArray(arr) {
+    return arr.sort((a, b) => a.length - b.length);
+}
+
+console.log(sortArray(['banana', 'kiwi', 'orange', 'mango', 'guva']));
+
+// Sort Words in a Sentence
+function sortSentence(str) {
+    let words = str.split(' ');
+    words.sort((a, b) => a.length - b.length);
+    return words.join(' ')
+
+}
+
+console.log(sortSentence('welcome to India'));
+
+// Reverse Words in a Sentence
+function reverseWords(str) {
+    let words = str.split(' ');
+    words.reverse((a, b) => a.length - b.length);
+    return words.join(' ');
+}
+
+console.log(reverseWords('welcome to india'));
+
+// filter()
+function filterArray(arr) {
+    return arr.filter(n => n % 2 === 0);
+}
+
+console.log(filterArray([1, 3, 10, 4, 5]));
+
+// Filter Positive Numbers
+function posiveNumber(arr) {
+    return arr.filter(n => n > 0);
+}
+
+console.log(posiveNumber([-1, -5, 2, 5, -6, 8]));
+
+// Filter Words Starting with a Specific Letter
+function startWithLetter(arr, str) {
+    return arr.filter(s => s.startsWith(str));
+}
+
+console.log(startWithLetter(['banana', 'kiwi', 'orange', 'mango', 'guva', 'biscuit'], 'b'));
+
+// reduce() 
+// Count Occurrences of Items in an Array
+function countOccurences(arr, n) {
+    let count = 0;
+    return arr.reduce((a, c) => a + c);
+}
+console.log(countOccurences(['banana', 'kiwi', 'orange', 'mango', 'guva', 'biscuit']));
+
+
