@@ -307,10 +307,94 @@ console.log(startWithLetter(['banana', 'kiwi', 'orange', 'mango', 'guva', 'biscu
 
 // reduce() 
 // Count Occurrences of Items in an Array
-function countOccurences(arr, n) {
-    let count = 0;
-    return arr.reduce((a, c) => a + c);
+function countOccurences(arr) {
+    return arr.reduce((a, item) => {
+        a[item] = (a[item] || 0) + 1;
+        return a;
+    }, {});
 }
-console.log(countOccurences(['banana', 'kiwi', 'orange', 'mango', 'guva', 'biscuit']));
+console.log(countOccurences(['banana', 'kiwi', 'orange', 'mango', 'guva', 'biscuit', 'banana', 'orange']));
+
+// spread()
+let arrEle1 = [1, 2, 3];
+let arrEle2 = [3, 4, 5];
+let arrayEle = [...arrEle1, ...arrEle2];
+console.log(arrayEle);
+
+// Spread an Array into Function Arguments
+function arrayFun(a, b, c) {
+    return a + b + c;
+}
+
+const array1 = [1, 2, 3];
+console.log(arrayFun(...array1));
+
+// Spread Operator to Copy and Modify Objects
+function updateObject(obj) {
+    return {...obj, age: obj.age + 1};
+}
+const obj1 = {
+    name : 'gowthami',
+    age : 20
+}
+console.log(updateObject(obj1));
+
+// Merging Two Objects
+function mergeObjects(obj1, obj2) {
+    let obj3 = {...obj1, ...obj2};
+    return obj3;
+}
+let user1 = {
+    name : 'virat', 
+    age : 35,
+    role : 'backend developer'
+}
+let user2 = {
+    name : 'chahal',
+    age : 28,
+    role : 'frontend developer'
+}
+
+console.log(mergeObjects(user1, user2));
+
+//  Remove the First Element of an Array Using Spread
+function removeFirstEle(arr) {
+    return [...arr.slice(1)];
+}
+console.log(removeFirstEle([3, 5, 7, 9]));
+
+// Basic Array Destructuring
+function swapFirstTwo(arr) {
+    [arr[1], arr[0]] = [arr[0], arr[1]];
+    
+    return arr;
+}
+console.log(swapFirstTwo([3, 2, 10, 5]));
+
+// Write a function sumAndProduct([a, b]) that takes an array of two numbers as input, 
+// and returns an object containing both their sum and product, 
+// using destructuring in the function parameters.
+function sumAndProduct([a, b]) {
+    let sum = a + b;
+    let product = a * b;
+
+    return `sum : ${sum}, product : ${product}`;
+}
+console.log(sumAndProduct([3, 4]));
+
+// Destructure with Rest and Default Values
+function restDefaultValues(arr) {
+    const [first = 'default',  ...rest] = arr;
+    return {first, rest};
+}
+console.log(restDefaultValues([9, 3, 1, 5, 2]));
+console.log(restDefaultValues([]));
+
+// get nested second value
+function getNestedValue(arr) {
+    const [, [, secondValue]] = arr;
+    return secondValue;
+}
+console.log(getNestedValue([3, [2, 4], 1]));
 
 
