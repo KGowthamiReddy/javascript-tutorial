@@ -397,4 +397,85 @@ function getNestedValue(arr) {
 }
 console.log(getNestedValue([3, [2, 4], 1]));
 
+// set() & map()
+function removeDuplicates(arr) {
+    return [...new Set(arr)];
+}
+console.log(removeDuplicates([1, 2, 1, 3, 2, 1, 4]));
 
+// Check if All Elements are Unique
+function checkUniqueEle(arr) {
+    return new Set(arr).size === arr.length;
+}
+console.log(checkUniqueEle([1, 2, 4, 1, 2, 3]));
+console.log(checkUniqueEle([9, 8, 7, 6]));
+
+// Find Intersection of Two Arrays
+function intersectionOfArrays(arr1, arr2) {
+    let set = new Set(arr1);
+    return [...new Set(arr2.filter(item => set.has(item)))];
+}
+console.log(intersectionOfArrays([1, 2, 3], [2, 3, 4]));
+
+// Find Union of Two Arrays
+function unionOfArrays(arr1, arr2) {
+    return [...new Set([...arr1, ...arr2])];
+}
+console.log(unionOfArrays([1, 2, 4, 5], [3, 2, 1, 6]));
+
+// Counting Frequencies of Elements
+function countFrequncies(arr) {
+    let map = new Map();
+    for(let num of arr) {
+        map.set(num, (map.get(num) || 0) + 1);
+    }
+    return map;
+}
+console.log(countFrequncies([1, 2, 3, 1, 3, 4, 6]));
+
+// Storing Key-Value Pairs
+function keyValue() {
+    let map = new Map();
+    map.set('laptop', 50000);
+    map.set('iphone', 60000);
+    console.log(map);
+    console.log(map.get('laptop'));
+    map.delete('laptop');
+    console.log(map.get('laptop'));
+}
+keyValue();
+
+// Check for a Key in a Map
+function checkForKey(map, key) {
+    return map.has(key);
+}
+let map = new Map([['name', 'gowthami'], ['age', 20]]);
+console.log(checkForKey(map, 'name'));
+
+// weakSet() & weakMap()
+function weakSetEg() {
+    let set = new WeakSet();
+    let obj1 = {name : 'Damu'};
+    let obj2 = {name : 'Naveen'};
+
+    set.add(obj1);
+    set.add(obj2);
+
+    console.log(set.has(obj1));
+
+}
+weakSetEg();
+
+// eg
+function weakMapEg() {
+    let map = new WeakMap();
+    let obj1 = {id : 1};
+    let obj2 = {id : 2};
+
+    map.set(obj1, 'object1');
+    map.set(obj2, 'object2');
+
+    console.log(map.get(obj1));
+
+}
+weakMapEg();
